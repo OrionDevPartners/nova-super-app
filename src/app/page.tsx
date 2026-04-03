@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "/api";
+const API_URL = "https://4btj5ykcyi.execute-api.us-east-1.amazonaws.com";
 
 const EXAMPLE_PROMPTS = [
   "Build a dashboard with charts and metrics",
