@@ -10,10 +10,13 @@ on:
 
 jobs:
   notify:
-    if: github.event.workflow_run.conclusion == 'failure'
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.name != 'Notify Guardian on Failure'
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch to Guardian
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GUARDIAN_PAT || secrets.WORKFLOW_PAT }}
         run: |
